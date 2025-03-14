@@ -7,10 +7,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+
   const fetchTasks = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/tasks');
+      const response = await fetch('API_URL/tasks');
       
       if (!response.ok) {
         throw new Error('Failed to fetch tasks');
@@ -29,7 +31,7 @@ function App() {
 
   const addTask = async (task) => { 
     try {
-      const response = await fetch('http://localhost:3000/tasks', {
+      const response = await fetch('API_URL/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +52,7 @@ function App() {
 
   const deleteTask = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/tasks/${id}`, {
+      const response = await fetch(`API_URL/tasks/${id}`, {
         method: 'DELETE',
       });
       

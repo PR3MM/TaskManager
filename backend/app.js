@@ -5,7 +5,8 @@ import express from 'express';
 import connectDB from './db/connectdb.js';
 
 const app = express();
-const PORT = 3000;
+// const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const DATABASE_URL = process.env.MONGO_URI;
 
@@ -17,7 +18,7 @@ if (!DATABASE_URL) {
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:5173', 
+     origin: process.env.FRONTEND_URL || 'http://localhost:3000'
   }));
 
 import taskRoutes from './routes/tasks.js';
