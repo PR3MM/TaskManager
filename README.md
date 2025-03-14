@@ -120,3 +120,5 @@ frontend/
 5. Push to the branch (`git push origin feature-branch`).
 6. Create a new pull request.
 
+![image](https://github.com/user-attachments/assets/70644236-8d5d-4fbb-a4f6-0311ab953405)
+
