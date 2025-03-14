@@ -13,7 +13,7 @@ function App() {
   const fetchTasks = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('API_URL/tasks');
+      const response = await fetch(`${API_URL}/tasks`);
       
       if (!response.ok) {
         throw new Error('Failed to fetch tasks');
@@ -32,7 +32,7 @@ function App() {
 
   const addTask = async (task) => { 
     try {
-      const response = await fetch('API_URL/tasks', {
+      const response = await fetch(`${API_URL}/tasks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ function App() {
 
   const deleteTask = async (id) => {
     try {
-      const response = await fetch(`API_URL/tasks/${id}`, {
+      const response = await fetch(`${API_URL}/tasks/${id}`, {
         method: 'DELETE',
       });
       
